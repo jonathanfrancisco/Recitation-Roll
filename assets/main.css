@@ -1,0 +1,25 @@
+
+body {
+
+	max-width: 1000px;
+	margin: 0 auto;
+	padding: 1em;
+}
+.container {
+	text-align: center;
+}
+
+
+.headerForm {
+	text-align: center;
+}
+
+
+/**************
+	CLASSES
+****************/
+.classesContainer div {
+	text-align: center;
+	width: 20%;
+	display: inline-block;
+}
