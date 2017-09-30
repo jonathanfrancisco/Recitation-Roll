@@ -18,9 +18,10 @@
 			<form id="addClassForm" method="POST" action="api.php">
 				<input type="text" name="className" placeholder="Class name"> 
 				<input type="submit" value="Add class">
-				<input type="hidden" name="data" value="class">
+				<input type="hidden" name="type" value="addClass">
 			</form>
 		</div>
+
 
 		<!-- This is where the classes go -->
 		<div class="row classesContainer">

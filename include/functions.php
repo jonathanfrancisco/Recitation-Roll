@@ -14,6 +14,15 @@
 
 	}
 
+
+	function removeClass($id) {
+		$connection = Database::connect();
+		$query = $connection->prepare("DELETE FROM classes WHERE class_id = :id");
+		$query->bindParam(':id',$id,PDO::PARAM_STR);
+		$query->execute();
+		Database::disconnect();
+	}
+
 	function getClasses() {
 
 		$connection = Database::connect();
@@ -23,6 +32,8 @@
 		
 		return $results = json_encode($results);
 	}
+
+	
 
 
 ?>
