@@ -15,11 +15,6 @@
 			// fetch the students in the database
 		}
 
-		else if($_GET['type'] == 'class') {
-			// fetch one class 
-			echo "Hello there";
-		}
-
 	}
 
 	else if($_SERVER['REQUEST_METHOD'] == 'POST') {

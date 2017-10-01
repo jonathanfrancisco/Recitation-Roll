@@ -30,10 +30,22 @@
 		$query->execute();
 		$results = $query->fetchAll(PDO::FETCH_ASSOC);
 		
-		return $results = json_encode($results);
+		return json_encode($results);
 	}
 
-	
+
+	function getClass($id) {
+
+		$connection = Database::connect();
+		$query = $connection->prepare("SELECT * FROM classes WHERE class_id = :id");
+		$query->bindParam(":id",$id,PDO::PARAM_STR);
+		$query->execute();
+		
+
+		return $query->fetch();
+
+
+	}	
 
 
 ?>

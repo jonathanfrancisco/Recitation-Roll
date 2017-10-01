@@ -17,11 +17,11 @@ function fetchClasses() {
 			data = JSON.parse(data);
 			let concatHTML = "";
 			data.forEach(function(data){
-				concatHTML += `<div class="col-4 classesCard">
-									<div class="card bg-light mb-3" style="max-width: 20rem;">
+				concatHTML += `<div class="col-md-3 classesCard text-center">
+									<div class="card bg-light mb-3">
 									  <div class="card-body">
 									    <h4 class="card-title"> ${data.class_name} </h4>
-									    <a class="btn btn-primary" href="api.php?type=class&id=${data.class_id}">View class</a>
+									    <a class="btn btn-primary" href="class.php?type=class&id=${data.class_id}">View class</a>
 									    <form method="POST" action="api.php">
 									    	<input type="hidden" name="type" value="removeClass">
 									    	<input type="hidden" name="classId" value="${data.class_id}">
@@ -41,15 +41,14 @@ function fetchClasses() {
 $('#addClassForm').on('submit',function(event) {
 
 	event.preventDefault();
+	
 	$.ajax({
 		type: $(this).attr('method'),
 		url:  $(this).attr('action'),
 		data: $(this).serialize(),
 		success:function() {
-
 			// re-update the DOM
 		  	fetchClasses();
-		
 		}
 	});
 
@@ -102,7 +101,5 @@ $('.classesContainer').on('submit', function(event){
 
 
 /******************************************************
-					ClASSES PAGE
+					CLASS PAGE
 *******************************************************/
-
-

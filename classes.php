@@ -9,19 +9,22 @@
 ?>
 
 
-	<div class="container">
+	<div class="mt-5 container">
+
+		
 
 		
 		<a href="index.html">Back</a>
 
-		<div class="headerForm">
-			<form id="addClassForm" method="POST" action="api.php">
-				<input type="text" name="className" placeholder="Class name"> 
-				<input type="submit" value="Add class">
-				<input type="hidden" name="type" value="addClass">
-			</form>
-		</div>
 
+		<form id="addClassForm" method="POST" action="api.php">
+		  <div class="form-group">
+		    <label for="className">Class name:</label>
+		    <input type="text" class="form-control" id="className" name="className" placeholder="Class name">
+		    <input type="hidden" name="type" value="addClass">
+		  </div>
+		  <button type="submit" class="btn btn-primary">Add</button>
+		</form>
 
 		<!-- This is where the classes go -->
 		<div class="row classesContainer">
@@ -41,5 +44,5 @@
 
 
 <?php
-	require_once 'include/footer.php';
+	require 'include/footer.php';
 ?>
