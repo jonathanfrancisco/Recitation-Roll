@@ -19,19 +19,34 @@
 
 	else if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+
+		
+		
 		if($_POST['type'] == 'addClass') {
-			addClass($_POST['className']);
+
+			$className = $_POST['className'];
+			addClass($className);
+
 		}
+		
 		else if($_POST['type'] == 'removeClass') {
-			removeClass($_POST['classId']);
+
+			$classId = $_POST['classId'];
+			removeClass($classId);
+
 		}
 
 		else if($_POST['type'] == 'addStudent') {
-			// add student ot the database
+			$lastName = $_POST['lastName'];
+			$firstName = $_POST['firstName'];
+			$classId = $_POST['classId'];
+			addStudent($lastName,$firstName,$_FILES,$classId);
+		
+
 		}
 
 		else if($_POST['type'] == 'removeStudent') {
-			// remove studnent in the database
+		
 		}
 
 	}

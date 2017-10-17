@@ -46,7 +46,7 @@ $('#addClassForm').on('submit',function(event) {
 		type: $(this).attr('method'),
 		url:  $(this).attr('action'),
 		data: $(this).serialize(),
-		success:function() {
+		success: function() {
 			// re-update the DOM
 		  	fetchClasses();
 		}
@@ -54,13 +54,13 @@ $('#addClassForm').on('submit',function(event) {
 
 });
 
-console.log($('.classesContainer'));
-
 // DELETION OF A CLASS
 $('.classesContainer').on('submit', function(event){
 	event.preventDefault();	
 
 	let form = event.target;
+	console.log($(form).attr('method'));
+	console.log($(form).attr('action'));
 
 	$.ajax({
 		type: $(form).attr('method'),
@@ -73,33 +73,39 @@ $('.classesContainer').on('submit', function(event){
 
 });
 
+// FOR ADDING A STUDENT
 
-// $('.classesContainer').on('click', function(event) {
+$('#addStudentForm').on('submit', function(event){
 
-// 	event.stopPropagation();
+	event.preventDefault();
 
-// 	if(event.target.textContent == 'View class') {
-// 		console.log("View");
-// 		// redirect to another page
-// 		// view the clicked class's students and other stuff
-// 	}
+	let form = event.target;
+	let formSerializeArrayData = $(form).serializeArray();
+	let imageFile = document.querySelector('input[type=file]').files[0];
+	let formData = new FormData(form);	
 
-// 	else if(event.target.textContent == 'Remove class') {
-// 		// removed this class that just clicked bruhh!!
-
-// 		$.ajax({
-// 			type: 'POST',
-// 			url: 'api.php',
-// 			success: function() {
-
-// 			}
-// 		});
+	// append lastname, firstname, and the image.
+	$.each(formSerializeArrayData, () => {
+		formData.append($(this).name,$(this).value);
+	});
+	formData.append('image',imageFile);
 
 
-// 	}
-// });
+	$.ajax({
+		type: $(this).attr('method'),
+		url: $(this).attr('action'),
+		data: formData,
+		processData: false,
+		contentType: false,
+		success: function(data) {
+			// DEBUGGING GPURPOSES
+			console.log("Success adding a student");
+			console.log(data);
+		}
+	});
+	
+});
 
 
-/******************************************************
-					CLASS PAGE
-*******************************************************/
+
+
