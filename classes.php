@@ -20,7 +20,7 @@
 		<form id="addClassForm" method="POST" action="api.php">
 		  <div class="form-group">
 		    <label for="className">Class name:</label>
-		    <input type="text" class="form-control" id="className" name="className" placeholder="Class name">
+		    <input required type="text" class="form-control" id="className" name="className" placeholder="Class name">
 		    <input type="hidden" name="type" value="addClass">
 		  </div>
 		  <button type="submit" class="btn btn-primary">Add</button>

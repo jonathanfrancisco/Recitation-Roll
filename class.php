@@ -22,9 +22,9 @@
 		<form id="addStudentForm" method="POST" action="api.php" enctype="multipart/form-data">
 		  <div class="form-group">
 
-		    <input type="text" class="form-control" name="lastName" placeholder="Last name">
-		    <input type="text" class="form-control" name="firstName" placeholder="First name">
-		    <input type="file" class="form-control" name="image">
+		    <input required type="text" class="form-control" name="lastName" placeholder="Last name">
+		    <input required type="text" class="form-control" name="firstName" placeholder="First name">
+		    <input required type="file" class="form-control" name="image">
 		    <input type="hidden" name="type" value="addStudent">
 		    <input type="hidden" name="classId" value="<?php echo $data['class_id']; ?>">
 		  </div>
